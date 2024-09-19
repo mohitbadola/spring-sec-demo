@@ -1,5 +1,6 @@
 package com.jason.spring_sec_demo;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,8 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("hello")
-    public String greet(){
-        return "Hello Welcome to my website";
+    public String greet(HttpServletRequest request){
+        return "Hello Welcome to my website "+request.getSession().getId();
+    }
+
+    @GetMapping("about")
+    public String about(HttpServletRequest request){
+        return "Jason "+request.getSession().getId();
     }
 
 }
