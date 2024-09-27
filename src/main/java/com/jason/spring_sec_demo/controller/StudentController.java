@@ -1,5 +1,6 @@
-package com.jason.spring_sec_demo;
+package com.jason.spring_sec_demo.controller;
 
+import com.jason.spring_sec_demo.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
