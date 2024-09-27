@@ -1,5 +1,7 @@
 package com.jason.spring_sec_demo.service;
 
+import com.jason.spring_sec_demo.dao.UserRepo;
+import com.jason.spring_sec_demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,6 +16,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repo.findByUsername(username);
+        if(user==null){
+            System.out.println("user 404");
+            throw new UsernameNotFoundException("User 404");
+        }
         return null;
     }
 }
