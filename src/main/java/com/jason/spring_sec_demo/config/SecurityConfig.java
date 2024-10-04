@@ -42,7 +42,6 @@ public class SecurityConfig {
                         .requestMatchers("register")
                         .permitAll()
                         .anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
